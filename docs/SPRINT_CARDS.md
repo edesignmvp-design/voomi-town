@@ -22,6 +22,7 @@ Sprint Cards:
 - SPR-005 Home Scene Foundation
 - SPR-006 Motion Framework
 - SPR-007 Living Home Polish
+- SPR-008 Snap Puzzle Foundation
 ```
 
 ## Global Development Rules
@@ -196,3 +197,37 @@ Completed:
 - Lili keeps subtle idleBreath.
 - Mailbox has a very gentle idle motion and still shakes after printing `MAILBOX`.
 - Memory Tree has a very gentle idle motion and still bounces after printing `TREE`.
+
+SPR-008
+Snap Puzzle Foundation
+DONE
+
+Goal:
+Create a simple reusable snap puzzle foundation for Voomi Town.
+
+Requirements:
+- Create reusable puzzle infrastructure under `src/core/puzzle`.
+- Provide `SnapPuzzlePiece`, `SnapZone`, and `SnapPuzzleController`.
+- Support dragging pieces, releasing pieces, snapping correct placement, returning wrong placement, and detecting completion.
+- Use Phaser.
+- Use existing MotionController where appropriate.
+- Do not connect puzzle infrastructure to adventure flow yet.
+- Do not modify HomeScene unless necessary.
+- Do not add gameplay progression, missions, rewards, scoring, timers, failure states, punishment feedback, or adventure logic.
+- Keep the first version very small and reusable.
+
+Acceptance:
+- Project builds successfully.
+- Puzzle piece can be dragged.
+- Correct placement snaps gently.
+- Wrong placement returns gently.
+- Completion can be detected.
+- Puzzle code is reusable.
+- No gameplay progression is added.
+
+Completed:
+- Added `SnapPuzzlePiece` as a draggable reusable Phaser container.
+- Added `SnapZone` for simple radius-based snap detection.
+- Added `SnapPuzzleController` for drag release handling, snap/return behavior, and completion detection.
+- Used MotionController for gentle snap and return feedback.
+- Left HomeScene and adventure flow unchanged.
