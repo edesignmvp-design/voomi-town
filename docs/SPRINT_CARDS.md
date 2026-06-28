@@ -23,6 +23,7 @@ Sprint Cards:
 - SPR-006 Motion Framework
 - SPR-007 Living Home Polish
 - SPR-008 Snap Puzzle Foundation
+- SPR-009 Beacon Assembly Prototype
 ```
 
 ## Global Development Rules
@@ -230,4 +231,38 @@ Completed:
 - Added `SnapZone` for simple radius-based snap detection.
 - Added `SnapPuzzleController` for drag release handling, snap/return behavior, and completion detection.
 - Used MotionController for gentle snap and return feedback.
+- Left HomeScene and adventure flow unchanged.
+
+SPR-009
+Beacon Assembly Prototype
+DONE
+
+Goal:
+Create the first simple Beacon Assembly prototype using the existing Snap Puzzle system.
+
+Requirements:
+- Create a simple Beacon Assembly prototype.
+- Use SnapPuzzlePiece, SnapZone, SnapPuzzleController, and MotionController.
+- Use simple Phaser geometric shapes only.
+- Keep the beacon to a few parts: base, pole, and light.
+- Make pieces draggable.
+- Snap correct placement gently.
+- Return wrong placement gently.
+- Trigger a small celebrate motion on completion.
+- Keep the prototype isolated from adventure flow.
+- Do not add missions, rewards, scoring, timers, fail states, UI menus, sound, particles, or story logic.
+
+Acceptance:
+- Project builds successfully.
+- Beacon Assembly prototype can run.
+- Pieces can be dragged and snapped.
+- Completion is detected.
+- Small completion celebration plays.
+- Puzzle foundation is reused, not duplicated.
+
+Completed:
+- Added isolated BeaconAssemblyScene prototype.
+- Registered BeaconAssemblyScene without starting it from BootScene.
+- Added geometric BeaconPuzzlePiece for base, pole, and light.
+- Reused SnapPuzzlePiece, SnapZone, SnapPuzzleController, and MotionController.
 - Left HomeScene and adventure flow unchanged.
