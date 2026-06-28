@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import { BootScene } from "../scenes/BootScene";
 import { BeaconAssemblyScene } from "../scenes/prototypes/BeaconAssemblyScene";
 import { HomeScene } from "../scenes/HomeScene";
+import { OpeningScene } from "../scenes/OpeningScene";
 
 export function createGame(parent: HTMLElement) {
   return new Phaser.Game({
@@ -14,6 +15,6 @@ export function createGame(parent: HTMLElement) {
       mode: Phaser.Scale.FIT,
       autoCenter: Phaser.Scale.CENTER_BOTH,
     },
-    scene: [BootScene, HomeScene, BeaconAssemblyScene],
+    scene: [BootScene, OpeningScene, HomeScene, BeaconAssemblyScene],
   });
 }

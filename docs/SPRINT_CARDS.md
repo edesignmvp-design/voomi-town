@@ -24,6 +24,7 @@ Sprint Cards:
 - SPR-007 Living Home Polish
 - SPR-008 Snap Puzzle Foundation
 - SPR-009 Beacon Assembly Prototype
+- SPR-010 Opening Scene Prototype
 ```
 
 ## Global Development Rules
@@ -266,3 +267,36 @@ Completed:
 - Added geometric BeaconPuzzlePiece for base, pole, and light.
 - Reused SnapPuzzlePiece, SnapZone, SnapPuzzleController, and MotionController.
 - Left HomeScene and adventure flow unchanged.
+
+SPR-010
+Opening Scene Prototype
+DONE
+
+Goal:
+Create a simple Opening Scene that naturally introduces Home without using a Start or other button.
+
+Requirements:
+- Create an OpeningScene.
+- App launch flow should be Boot / language detection, OpeningScene, then HomeScene.
+- Do not show any Start button.
+- Do not show language selection.
+- Use simple Phaser geometry only.
+- Play a short, gentle opening sequence: garage door opens, Lili wakes up, Lili waves, Memory Tree sways, Mailbox shows one letter, camera settles on Home, then HomeScene starts automatically.
+- Use existing systems where appropriate.
+- Do not add gameplay, missions, rewards, puzzles, sound, particles, new UI, or skip button.
+
+Acceptance:
+- Project builds successfully.
+- App starts without a Start button.
+- OpeningScene plays automatically.
+- OpeningScene transitions automatically to HomeScene.
+- HomeScene still works.
+- No language selection page appears.
+- No hardcoded visible text is added.
+
+Completed:
+- Added OpeningScene with a short geometry-only opening sequence.
+- BootScene now starts OpeningScene.
+- OpeningScene automatically transitions to HomeScene.
+- Removed the visible Start Adventure button from HomeScene.
+- Kept HomeScene layout and existing objects otherwise unchanged.
