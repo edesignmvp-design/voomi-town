@@ -5,10 +5,31 @@ This repository is developed with a clear separation between engine code and wor
 ## Development Flow
 
 1. Start from the latest `main`.
-2. Keep each change focused on one feature, fix, or refactor.
-3. Run the relevant validation before committing.
-4. Use a Conventional Commit message.
-5. Push only code that can be explained from the commit title and diff.
+2. Work from a Sprint Card, not a generic task.
+3. Keep each change focused on one feature, fix, or refactor.
+4. Run the relevant validation before committing.
+5. Use a Conventional Commit message.
+6. Push only code that can be explained from the Sprint Card, commit title, and diff.
+
+## Sprint Cards
+
+Development work is tracked as Sprint Cards, using IDs such as `SPR-001`.
+
+Do not call planned work a task in project documentation. Use Sprint Card language so the project stays clear across Codex, Claude, Cursor, and human contributors.
+
+Sprint Card examples:
+
+```txt
+SPR-001
+Project Bootstrap
+DONE
+
+SPR-002
+Localization
+DONE
+```
+
+See `docs/SPRINT_CARDS.md` for the card format, status values, and current project cards.
 
 ## Project Boundaries
 
@@ -74,6 +95,7 @@ If a change adds tests in the future, run the relevant test command as well.
 Codex, Claude, Cursor, and other coding agents should:
 
 - Respect the `core` versus `objects` boundary.
+- Use Sprint Card language instead of task language.
 - Prefer small, reviewable commits.
 - Use the commit format in this document.
 - Avoid unrelated refactors while implementing a requested change.
