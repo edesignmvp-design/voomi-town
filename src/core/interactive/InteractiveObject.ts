@@ -15,6 +15,7 @@ export class InteractiveObject extends Phaser.GameObjects.Container {
   public enabled: boolean;
 
   protected highlight?: Phaser.GameObjects.Shape;
+  private interactionConfig?: Phaser.Types.Input.InputConfiguration;
 
   constructor(scene: Phaser.Scene, config: InteractiveObjectConfig) {
     super(scene, config.position.x, config.position.y);
@@ -42,7 +43,11 @@ export class InteractiveObject extends Phaser.GameObjects.Container {
     this.enabled = enabled;
 
     if (enabled) {
-      super.setInteractive();
+      if (this.interactionConfig) {
+        super.setInteractive(this.interactionConfig);
+      } else {
+        super.setInteractive();
+      }
     } else {
       this.disableInteractive();
     }
@@ -59,7 +64,8 @@ export class InteractiveObject extends Phaser.GameObjects.Container {
   }
 
   protected registerInteraction(hitArea: Phaser.Types.Input.InputConfiguration) {
-    super.setInteractive(hitArea);
+    this.interactionConfig = hitArea;
+    super.setInteractive(this.interactionConfig);
 
     this.on(Phaser.Input.Events.POINTER_DOWN, () => {
       if (!this.enabled) {
