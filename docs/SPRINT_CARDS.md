@@ -4,6 +4,37 @@ Voomi Town tracks development work with Sprint Cards. A Sprint Card is a clear, 
 
 Do not use generic task naming in project documentation. Use Sprint Card names and IDs so the project reads like a small Trello or Jira board.
 
+Review notes are not Sprint Cards. Keep review-driven engineering improvements in `docs/REVIEW_NOTES.md` unless they become independent deliverables.
+
+## Epics
+
+Epics group related Sprint Cards into a larger product or engineering direction.
+
+```txt
+EPIC-001
+Project Foundation
+
+Sprint Cards:
+- SPR-001 Project Bootstrap
+- SPR-002 Localization
+- SPR-003 Shared Development Standards
+- SPR-004 Sprint Card Workflow
+- SPR-005 Home Scene Foundation
+```
+
+## Global Development Rules
+
+These rules apply to every Sprint Card unless a card explicitly says otherwise:
+
+- Do not redesign existing architecture without approval.
+- Keep implementation simple and aligned with the current codebase.
+- Do not add gameplay unless the Sprint Card requires it.
+- Do not add missions, puzzles, reward logic, vehicle movement, animation systems, or sound systems unless the Sprint Card requires them.
+- Keep `src/core` for engine code only.
+- Keep Voomi world content outside `src/core`.
+- Continue using localization helpers for visible text.
+- Run `npm run build` before pushing.
+
 ## Card Format
 
 Each card should use:
@@ -56,10 +87,6 @@ SPR-001
 Project Bootstrap
 DONE
 
-Implementation Notes:
-- InteractiveObject hit area reuse was completed as a review improvement under the project foundation work.
-- HomeScene resize listener cleanup was completed as a review improvement under the project foundation work.
-
 SPR-002
 Localization
 DONE
@@ -87,19 +114,9 @@ Requirements:
 - Continue supporting responsive layout.
 - Continue using simple Phaser Graphics.
 - Do not introduce external assets.
-- Do not add gameplay.
-- Do not add missions.
-- Do not add puzzles.
-- Do not add animation systems.
-- Do not redesign the current architecture.
 
 Acceptance:
 - Project builds successfully.
 - HomeScene remains responsive.
 - Interactive objects continue working.
 - Existing behavior remains unchanged.
-
-Important:
-- Do not redesign existing code.
-- Keep the implementation simple.
-- Follow the existing project architecture.
