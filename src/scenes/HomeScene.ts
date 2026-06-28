@@ -12,6 +12,7 @@ export class HomeScene extends Phaser.Scene {
   create() {
     this.drawHome();
     this.scale.on(Phaser.Scale.Events.RESIZE, this.drawHome, this);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this);
   }
 
   shutdown() {
