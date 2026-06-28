@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { MotionController } from "../../core/motion/MotionController";
 import { HomeInteractiveObject } from "../home/HomeInteractiveObject";
 
 export class MemoryTreeObject extends HomeInteractiveObject {
@@ -35,5 +36,10 @@ export class MemoryTreeObject extends HomeInteractiveObject {
       hitArea: new Phaser.Geom.Rectangle(-84, -160, 168, 240),
       hitAreaCallback: Phaser.Geom.Rectangle.Contains,
     });
+  }
+
+  override onTap() {
+    super.onTap();
+    MotionController.softBounce(this);
   }
 }

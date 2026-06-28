@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { MotionController } from "../../core/motion/MotionController";
 import { HomeInteractiveObject } from "../home/HomeInteractiveObject";
 
 export class LiliPlaceholderObject extends HomeInteractiveObject {
@@ -11,6 +12,7 @@ export class LiliPlaceholderObject extends HomeInteractiveObject {
     });
 
     this.draw();
+    MotionController.idleBreath(this);
   }
 
   private draw() {

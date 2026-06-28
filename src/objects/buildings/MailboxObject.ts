@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { MotionController } from "../../core/motion/MotionController";
 import { HomeInteractiveObject } from "../home/HomeInteractiveObject";
 
 export class MailboxObject extends HomeInteractiveObject {
@@ -37,5 +38,10 @@ export class MailboxObject extends HomeInteractiveObject {
       hitArea: new Phaser.Geom.Rectangle(-68, -82, 136, 168),
       hitAreaCallback: Phaser.Geom.Rectangle.Contains,
     });
+  }
+
+  override onTap() {
+    super.onTap();
+    MotionController.gentleShake(this);
   }
 }

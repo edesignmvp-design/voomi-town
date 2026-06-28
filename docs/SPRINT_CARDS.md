@@ -20,6 +20,7 @@ Sprint Cards:
 - SPR-003 Shared Development Standards
 - SPR-004 Sprint Card Workflow
 - SPR-005 Home Scene Foundation
+- SPR-006 Motion Framework
 ```
 
 ## Global Development Rules
@@ -128,3 +129,37 @@ Completed:
 - MailboxObject, MemoryTreeObject, and LiliPlaceholderObject continue using InteractiveObject.
 - GarageObject remains a simple placeholder.
 - Existing Start Adventure button drawing is kept as a simple Home object.
+
+SPR-006
+Motion Framework
+DONE
+
+Goal:
+Create a lightweight reusable motion framework for Voomi Town.
+
+Requirements:
+- Create `src/core/motion/MotionController.ts`.
+- Provide reusable Phaser Tween helpers: `idleBreath`, `gentleShake`, `softBounce`, `celebrate`, and `stop`.
+- Keep motion subtle and child-friendly.
+- Integrate with the existing InteractiveObject system without redesigning it.
+- Apply idleBreath to LiliPlaceholderObject.
+- Apply gentleShake when MailboxObject is tapped.
+- Apply softBounce when MemoryTreeObject is tapped.
+- Keep existing click behavior unchanged.
+- Keep MotionController responsible only for motion.
+
+Acceptance:
+- Project builds successfully.
+- HomeScene continues to work.
+- MotionController is reusable.
+- Lili has a subtle idle motion.
+- Mailbox gently shakes when tapped.
+- Memory Tree softly bounces when tapped.
+- Existing click behavior remains unchanged.
+
+Completed:
+- Added reusable MotionController in `src/core/motion`.
+- Kept all tween logic centralized in MotionController.
+- Lili uses idleBreath.
+- Mailbox still prints `MAILBOX`, then uses gentleShake.
+- Memory Tree still prints `TREE`, then uses softBounce.
