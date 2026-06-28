@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { MotionController, type MotionTarget } from "../core/motion/MotionController";
 import { t } from "../localization/i18n";
 import { GarageObject } from "../objects/buildings/GarageObject";
 import { MailboxObject } from "../objects/buildings/MailboxObject";
@@ -22,7 +23,7 @@ export class HomeScene extends Phaser.Scene {
   }
 
   private drawHome() {
-    this.children.removeAll();
+    this.clearHome();
 
     const width = this.scale.width;
     const height = this.scale.height;
@@ -48,5 +49,13 @@ export class HomeScene extends Phaser.Scene {
     new LiliPlaceholderObject(this, width * 0.5, height * 0.36, t("home.lili"));
     new GarageObject(this, width * 0.76, height * 0.56, t("home.garage"));
     new StartAdventureButtonObject(this, width / 2, height * 0.84, t("home.startAdventure"));
+  }
+
+  private clearHome() {
+    this.children.each((child) => {
+      MotionController.stop(child as MotionTarget);
+    });
+
+    this.children.removeAll(true);
   }
 }

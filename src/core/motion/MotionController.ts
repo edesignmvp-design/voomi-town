@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 
-type MotionTarget = Phaser.GameObjects.GameObject & {
+export type MotionTarget = Phaser.GameObjects.GameObject & {
   x: number;
   y: number;
   scaleX: number;
@@ -17,25 +17,37 @@ type MotionSnapshot = {
   angle: number;
 };
 
+type IdleBreathOptions = {
+  yOffset?: number;
+  scaleOffset?: number;
+  duration?: number;
+};
+
+type MotionOptions = {
+  onComplete?: () => void;
+};
+
 export class MotionController {
   private static readonly snapshots = new WeakMap<MotionTarget, MotionSnapshot>();
 
-  static idleBreath(target: MotionTarget) {
+  static idleBreath(target: MotionTarget, options: IdleBreathOptions = {}) {
     const base = this.prepare(target);
+    const yOffset = options.yOffset ?? -2;
+    const scaleOffset = options.scaleOffset ?? 0.015;
 
     return target.scene.tweens.add({
       targets: target,
-      y: base.y - 2,
-      scaleX: base.scaleX * 1.015,
-      scaleY: base.scaleY * 1.015,
-      duration: 1400,
+      y: base.y + yOffset,
+      scaleX: base.scaleX * (1 + scaleOffset),
+      scaleY: base.scaleY * (1 + scaleOffset),
+      duration: options.duration ?? 1400,
       ease: "Sine.easeInOut",
       yoyo: true,
       repeat: -1,
     });
   }
 
-  static gentleShake(target: MotionTarget) {
+  static gentleShake(target: MotionTarget, options: MotionOptions = {}) {
     const base = this.prepare(target);
 
     return target.scene.tweens.add({
@@ -46,11 +58,14 @@ export class MotionController {
       ease: "Sine.easeInOut",
       yoyo: true,
       repeat: 3,
-      onComplete: () => this.restore(target),
+      onComplete: () => {
+        this.restore(target);
+        options.onComplete?.();
+      },
     });
   }
 
-  static softBounce(target: MotionTarget) {
+  static softBounce(target: MotionTarget, options: MotionOptions = {}) {
     const base = this.prepare(target);
 
     return target.scene.tweens.add({
@@ -62,11 +77,14 @@ export class MotionController {
       ease: "Sine.easeOut",
       yoyo: true,
       repeat: 0,
-      onComplete: () => this.restore(target),
+      onComplete: () => {
+        this.restore(target);
+        options.onComplete?.();
+      },
     });
   }
 
-  static celebrate(target: MotionTarget) {
+  static celebrate(target: MotionTarget, options: MotionOptions = {}) {
     const base = this.prepare(target);
 
     return target.scene.tweens.add({
@@ -78,7 +96,10 @@ export class MotionController {
       ease: "Sine.easeInOut",
       yoyo: true,
       repeat: 1,
-      onComplete: () => this.restore(target),
+      onComplete: () => {
+        this.restore(target);
+        options.onComplete?.();
+      },
     });
   }
 

@@ -21,6 +21,7 @@ Sprint Cards:
 - SPR-004 Sprint Card Workflow
 - SPR-005 Home Scene Foundation
 - SPR-006 Motion Framework
+- SPR-007 Living Home Polish
 ```
 
 ## Global Development Rules
@@ -163,3 +164,35 @@ Completed:
 - Lili uses idleBreath.
 - Mailbox still prints `MAILBOX`, then uses gentleShake.
 - Memory Tree still prints `TREE`, then uses softBounce.
+
+SPR-007
+Living Home Polish
+DONE
+
+Goal:
+Polish the existing Home Scene so it feels gently alive without adding gameplay.
+
+Requirements:
+- Keep HomeScene as the entry scene.
+- Do not redesign the scene layout.
+- Use the existing MotionController.
+- Keep Lili on subtle idleBreath.
+- Add very gentle idle motion to Mailbox and Memory Tree.
+- Ensure resize redraw does not leave old tweens running.
+- Keep existing tap behavior unchanged.
+- Do not add gameplay, missions, puzzles, adventure logic, vehicle movement, sound, particles, new UI, or external assets.
+
+Acceptance:
+- Project builds successfully.
+- HomeScene still works.
+- Home feels slightly more alive.
+- Existing interactions remain unchanged.
+- Resize does not leave duplicated or orphaned tweens.
+- Motion remains subtle and child-friendly.
+
+Completed:
+- HomeScene stops existing motion before resize redraw clears objects.
+- HomeScene destroys old display objects during redraw.
+- Lili keeps subtle idleBreath.
+- Mailbox has a very gentle idle motion and still shakes after printing `MAILBOX`.
+- Memory Tree has a very gentle idle motion and still bounces after printing `TREE`.

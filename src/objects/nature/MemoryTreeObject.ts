@@ -12,6 +12,7 @@ export class MemoryTreeObject extends HomeInteractiveObject {
     });
 
     this.draw();
+    this.startIdleMotion();
   }
 
   private draw() {
@@ -40,6 +41,16 @@ export class MemoryTreeObject extends HomeInteractiveObject {
 
   override onTap() {
     super.onTap();
-    MotionController.softBounce(this);
+    MotionController.softBounce(this, {
+      onComplete: () => this.startIdleMotion(),
+    });
+  }
+
+  private startIdleMotion() {
+    MotionController.idleBreath(this, {
+      yOffset: -1.5,
+      scaleOffset: 0.004,
+      duration: 2200,
+    });
   }
 }

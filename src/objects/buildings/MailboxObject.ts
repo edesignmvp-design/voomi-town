@@ -12,6 +12,7 @@ export class MailboxObject extends HomeInteractiveObject {
     });
 
     this.draw();
+    this.startIdleMotion();
   }
 
   private draw() {
@@ -42,6 +43,16 @@ export class MailboxObject extends HomeInteractiveObject {
 
   override onTap() {
     super.onTap();
-    MotionController.gentleShake(this);
+    MotionController.gentleShake(this, {
+      onComplete: () => this.startIdleMotion(),
+    });
+  }
+
+  private startIdleMotion() {
+    MotionController.idleBreath(this, {
+      yOffset: -1,
+      scaleOffset: 0.006,
+      duration: 1800,
+    });
   }
 }

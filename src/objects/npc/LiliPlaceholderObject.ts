@@ -12,7 +12,7 @@ export class LiliPlaceholderObject extends HomeInteractiveObject {
     });
 
     this.draw();
-    MotionController.idleBreath(this);
+    this.startIdleMotion();
   }
 
   private draw() {
@@ -39,5 +39,9 @@ export class LiliPlaceholderObject extends HomeInteractiveObject {
       hitArea: new Phaser.Geom.Rectangle(-52, -72, 104, 176),
       hitAreaCallback: Phaser.Geom.Rectangle.Contains,
     });
+  }
+
+  private startIdleMotion() {
+    MotionController.idleBreath(this);
   }
 }
