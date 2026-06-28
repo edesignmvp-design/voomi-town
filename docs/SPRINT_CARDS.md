@@ -101,7 +101,7 @@ DONE
 
 SPR-005
 Home Scene Foundation
-TODO
+DONE
 
 Goal:
 Stabilize the Home Scene as the foundation of Voomi Town.
@@ -120,3 +120,11 @@ Acceptance:
 - HomeScene remains responsive.
 - Interactive objects continue working.
 - Existing behavior remains unchanged.
+
+Completed:
+- HomeScene remains the entry scene.
+- HomeScene handles background drawing, responsive layout, object creation, and resize redraw.
+- MailboxObject, MemoryTreeObject, GarageObject, and LiliPlaceholderObject live under `src/objects`.
+- MailboxObject, MemoryTreeObject, and LiliPlaceholderObject continue using InteractiveObject.
+- GarageObject remains a simple placeholder.
+- Existing Start Adventure button drawing is kept as a simple Home object.

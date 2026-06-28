@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { HomeInteractiveObject } from "./HomeInteractiveObject";
+import { HomeInteractiveObject } from "../home/HomeInteractiveObject";
 
 export class MailboxObject extends HomeInteractiveObject {
   constructor(scene: Phaser.Scene, x: number, y: number, label: string) {
