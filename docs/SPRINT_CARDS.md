@@ -52,10 +52,13 @@ BLOCKED
 
 ## Current Cards
 
-```txt
 SPR-001
 Project Bootstrap
 DONE
+
+Implementation Notes:
+- InteractiveObject hit area reuse was completed as a review improvement under the project foundation work.
+- HomeScene resize listener cleanup was completed as a review improvement under the project foundation work.
 
 SPR-002
 Localization
@@ -68,4 +71,35 @@ DONE
 SPR-004
 Sprint Card Workflow
 DONE
-```
+
+SPR-005
+Home Scene Foundation
+TODO
+
+Goal:
+Stabilize the Home Scene as the foundation of Voomi Town.
+
+Requirements:
+- Keep HomeScene as the entry scene.
+- Keep Memory Tree, Mailbox, Garage, and Lili placeholders.
+- Continue using InteractiveObject.
+- Continue using `t(key)` for all visible text.
+- Continue supporting responsive layout.
+- Continue using simple Phaser Graphics.
+- Do not introduce external assets.
+- Do not add gameplay.
+- Do not add missions.
+- Do not add puzzles.
+- Do not add animation systems.
+- Do not redesign the current architecture.
+
+Acceptance:
+- Project builds successfully.
+- HomeScene remains responsive.
+- Interactive objects continue working.
+- Existing behavior remains unchanged.
+
+Important:
+- Do not redesign existing code.
+- Keep the implementation simple.
+- Follow the existing project architecture.
